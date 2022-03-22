@@ -50,8 +50,10 @@ kubectl scale --replicas=6 -f replicaset-definition.yml
 ```
 
 9) run scale command, specify replicaset name
+**W: need to add "rs/" before replicaset name, for command to work**
+
 ```
-kubectl scale --replicas=6 -f myapp-replicaset
+kubectl scale --replicas=6 rs/myapp-replicaset
 ```
 
 10) delete replicaset
