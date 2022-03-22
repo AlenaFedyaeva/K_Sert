@@ -1,13 +1,17 @@
 ## Pod
 ### 1. How to create new POD with the nginx image? 
 
-1) 
+1) run particular image in a pod
 ```
 kubectl run nginx --image=nginx
 ```
-2) create file like pod-file.yml run command: 
+2) create from file 'pod-file.yml' : 
 ```
 kubectl create -f ./pod-file.yml
+```
+3) create if not exist (or apply if configuration exist)
+```
+kubectl apply -f pod-file.yaml 
 ```
 ### 2. How find what is the used image of the pod?
 1) 
@@ -28,7 +32,10 @@ kubectl describe pod "pod-name" | grep -i image
    ```
    kubectl get pod -o wide 
    ```
-   2) run: kubectl describe pod "pod-name"
+   2) run:
+   ```
+    kubectl describe pod "pod-name"
+   ```
    and look for field "Node"
 
 ### 4. How to delete pod?
@@ -63,5 +70,29 @@ modify and then save the file.
  ```
 
 
+## Deployment 
 
-kubectl apply -f pod-file.yaml 
+1) How to find deployment image?
+
+Need to find deployment name, then run cmd describe and find field "image"
+
+```
+kubectl get deployment
+kubectl describe deployment 'name-deployment'
+
+```
+
+
+2) How to find reason why deployment not ready yet? 
+
+Need to run cmd and look under the Events section.
+```
+kubectl describe pods <pod-name>
+```
+
+ 
+
+
+
+
+

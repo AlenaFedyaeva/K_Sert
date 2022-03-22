@@ -62,6 +62,22 @@ kubectl scale --replicas=6 rs/myapp-replicaset
 kubectl delete replicaset myapp-replicaset
 ```
 
+11) create deployment
+```
+kubectl create -f deployment-definition.yml
+kubectl get deployments
+```
+
+12) **show all**
+```
+kubectl get all
+```
+## HELP inside kubectl
+13) View explain 
+```
+kubectl explain deployment 
+```
+
 ## Replication controller & Replica Set
 Replication controller is the older technology that is beeing replaces by Replica Set. They very similar. They:   
   1) helps run multiple instances
@@ -75,4 +91,10 @@ But have some differences
 2) Definition file for Replica set has field SELECTOR
 
 Selector is the major difference between Replica set and replication controller
+
+
+## Deployment
+
+Deployment automaticly create ReplicaSet. ReplicaSet automaticly create Pods. 
+**Defference between deployment and replicaset: Deployment creates a new Kubernates object - deployments**
 
