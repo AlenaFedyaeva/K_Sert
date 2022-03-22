@@ -2,7 +2,9 @@
 
 # CNCF Certification
 Certified Kubernetes Application Developer: https://www.cncf.io/certification/ckad/
+
 Candidate Handbook: https://www.cncf.io/certification/candidate-handbook
+
 Exam Tips: https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
 
 
@@ -35,6 +37,28 @@ kubectl create -f replicaset-definition.yml
 ```
 kubectl get replicaset
 ```
+## Ways to scale replicaset
+
+7) update number of replicas in definition, then run:
+```
+kubectl replace -f replicaset-definition.yml
+```
+
+8) run scale command, specify definition file
+```
+kubectl scale --replicas=6 -f replicaset-definition.yml
+```
+
+9) run scale command, specify replicaset name
+```
+kubectl scale --replicas=6 -f myapp-replicaset
+```
+
+10) delete replicaset
+**This also delete ALL underlying PODs**
+```
+kubectl delete replicaset myapp-replicaset
+```
 
 ## Replication controller & Replica Set
 Replication controller is the older technology that is beeing replaces by Replica Set. They very similar. They:   
@@ -49,3 +73,4 @@ But have some differences
 2) Definition file for Replica set has field SELECTOR
 
 Selector is the major difference between Replica set and replication controller
+

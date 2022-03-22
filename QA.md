@@ -31,7 +31,15 @@ kubectl get pod "pod-name" -o yaml > pod-definition.yaml
 
 ## ReplicaSet
 
-### 1) 
+### 1. How to update replicaset 
+
+1) Edit replicaset with cmd
+
+``` kubectl edit replicaset new-replica-set
+```
+modify and then save the file. 
+2) Delete the previous pods to get the new ones with the correct image. 
+ ```kubectl delete pod 'pod-name' ```
 
 
 
