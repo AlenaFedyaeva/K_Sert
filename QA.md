@@ -1,5 +1,5 @@
 ## Pod
-### 1. How to create new POD with the nginx image 
+### 1. How to create new POD with the nginx image? 
 
 1) kubectl run nginx --image=nginx
 2) create file like pod-file.yml
@@ -16,17 +16,17 @@
    2) run: kubectl describe pod "pod-name"
    and look for field "Node"
 
-### 4. How to delete pod
+### 4. How to delete pod?
 kubectl delete pod "pod-name"
 
 ### 5. How to create simple manifest file template?
 
 kubectl run redis --image=redisNewImage --dry-run=client -o yaml > redis-definition.yaml
 
-### 6. How edit and update EXISTING pod 
+### 6. How edit and update EXISTING pod? 
 kubectl edit pod 'pod-name'
 
-### 7.How to extract a pod definition to a file
+### 7.How to extract a pod definition to a file?
 kubectl get pod "pod-name" -o yaml > pod-definition.yaml
 
 ## ReplicaSet

@@ -10,5 +10,5 @@ metadata:
 
 spec:
   containers:
-  - image: redis123
-    name: redis-cont
+  - image: nginx
+    name: nginx-cont
