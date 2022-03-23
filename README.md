@@ -7,6 +7,13 @@ Candidate Handbook: https://www.cncf.io/certification/candidate-handbook
 
 Exam Tips: https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
 
+# Usefull links
+
+https://kubernetes.io/docs/reference/kubectl/overview/
+
+https://kubernetes.io/docs/reference/kubectl/cheatsheet/
+
+
 
 # Commands
 
@@ -98,3 +105,65 @@ Selector is the major difference between Replica set and replication controller
 Deployment automaticly create ReplicaSet. ReplicaSet automaticly create Pods. 
 **Defference between deployment and replicaset: Deployment creates a new Kubernates object - deployments**
 
+
+## Namespace
+By default all pods create in Default namespace.
+
+### 1) Get from default namespace
+```
+kubectl get pods
+```
+This command return only pods that been placed in Default namespace.
+### 2) Get pods from other namespace
+
+```
+kubectl get pods --namespace=<your-namespace>
+```
+
+### 3) Create pod in your namespace use
+```
+kubectl create -f pod.yml --namespace=<your-namespace>
+```
+
+Or you can move namespace definition in pod.yml file 
+
+### 4) Create Namespace
+create file.yml
+```
+apiVersion: v1
+kind: Namespace
+metadata: 
+  name: dev
+```
+
+and run 
+
+```
+kubectl create -f file.yml
+//or just  
+kubectl create namespace <namespace-name>
+
+```
+
+
+
+## Resource Quota
+
+create file with limits request.yml:
+```
+apiVersion: v1
+kind: ResoursesQuota
+metadata:
+  name: compute-quota
+  namespace: dev
+spec:
+  hard: "10"
+  requests.cpu: "4"
+  requests.memory: 5Gi
+  limits.cpu: "10"
+  limits.memory: 10Gi
+```
+
+```
+kubectl createa -f request.yml
+```

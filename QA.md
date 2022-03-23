@@ -72,7 +72,7 @@ modify and then save the file.
 
 ## Deployment 
 
-1) How to find deployment image?
+### 1) How to find deployment image?
 
 Need to find deployment name, then run cmd describe and find field "image"
 
@@ -83,16 +83,47 @@ kubectl describe deployment 'name-deployment'
 ```
 
 
-2) How to find reason why deployment not ready yet? 
+### 2) How to find reason why deployment not ready yet? 
 
 Need to run cmd and look under the Events section.
 ```
 kubectl describe pods <pod-name>
 ```
 
+### 3) How to create deployment from templates with image and scale it?
+
+```
+kubectl create deployment <deployment-name> --image=httpd.2.4-alpine
+kubectl scale deployment --replicas=3 <deployment-name>
+```
+
+
+## Namespace 
+
+### 1) How to replace default namespace with another one?
+
+```
+kubectl config set-context $(kubectl config current-content) --namespace=<your-namespace>
+```
  
+ ### 2) How to list all pods from all namespaces?
+
+```
+kubectl get pods --all-namespaces
+```
+
+## ResourceQuota
+to specify resources
 
 
+#
+What DNS name should the Blue application use to access the database 'db-service' in the 'dev' namespace
+
+You can try it in the web application UI. Use port 6379.
+
+Since the blue application and the db-service are in different namespaces in this case, we need to use the service name along with the namespace to access the database. The FQDN (fully Qualified Domain Name) for the db-service in this example would be db-service.dev.svc.cluster.local.
+
+Note: You can also access it using the service name and namespace like this: db-service.dev
 
 
 
