@@ -1,18 +1,14 @@
-# K_Sert
-
-# CNCF Certification
-Certified Kubernetes Application Developer: https://www.cncf.io/certification/ckad/
-
-Candidate Handbook: https://www.cncf.io/certification/candidate-handbook
-
-Exam Tips: https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
-
 # Usefull links
 
 https://kubernetes.io/docs/reference/kubectl/overview/
 
 https://kubernetes.io/docs/reference/kubectl/cheatsheet/
 
+Certified Kubernetes Application Developer: https://www.cncf.io/certification/ckad/
+
+Candidate Handbook: https://www.cncf.io/certification/candidate-handbook
+
+Exam Tips: https://docs.linuxfoundation.org/tc-docs/certification/tips-cka-and-ckad
 
 
 # Commands
